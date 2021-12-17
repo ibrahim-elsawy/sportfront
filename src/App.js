@@ -4,7 +4,7 @@ import { Home } from './components/body/Home';
 
 function App() {
   return (
-    <div>
+    <div className="m-0 p-0">
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="about" element={<About />} /> */}
