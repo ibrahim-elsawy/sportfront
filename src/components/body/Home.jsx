@@ -7,17 +7,17 @@ import { Right } from "./RightSide";
 
 export const Home = (props) => {
 	return (
-		<div className="bg-scroll p-5 bg-gray-900 bg-gradient-to-r from-gray-900 to-black font-sans text-gray-500 flex flex-row">
-			<div className="flex flex-row basis-3/4 divide-x divide-gray-500">
-				<div className="basis-1/4">
+		<div className="h-screen  sm:bg-scroll p-2 sm:p-5 bg-gray-900 bg-gradient-to-r from-gray-900 to-black font-sans text-gray-500 flex flex-row">
+			<div className="flex flex-row sm:basis-3/4 divide-x divide-gray-500">
+				<div className=" basis-1/8 sm:basis-1/4">
 					<Left></Left>
 				</div>
-				<div className="basis-3/4">
+				<div className="basis-7/8 sm:basis-3/4">
 					<Search></Search>
 					<Post></Post>
 				</div>
 			</div>
-			<div className="basis-1/4 divide-none">
+			<div className="hidden sm:block sm:basis-1/4 sm:divide-none">
 				<Right></Right>
 			</div>
 		</div>

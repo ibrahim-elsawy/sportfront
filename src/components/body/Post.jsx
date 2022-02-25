@@ -5,14 +5,18 @@ import { Option } from "./Option";
 import { Content } from "./ContentPost";
 import { Support } from "./Support";
 import { Comment } from './Comment';
+import { Save } from "./Save";
 
 export const Post = (props) => {
 	return (
 		<div className="bg-black rounded-lg text-neutral-300 flex flex-col divide-y divide-slate-800 mx-3 my-10" >
 			<Content></Content>
-			<div className="flex flex-row">
-				<Support></Support>
-				<Comment></Comment>
+			<div className="flex flex-row justify-between">
+				<div>
+					<Support></Support>
+					<Comment></Comment>
+				</div>
+				<Save></Save>
 			</div>
 			<div className=" p-3 flex flex-row">
 				<img className="mt-0-5 h-6 w-6 rounded-full" src={img} alt="" />
