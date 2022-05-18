@@ -14,14 +14,15 @@ axios.interceptors.response.use(null, error => {
   return Promise.reject(error);
 });
 
-function setJwt(jwt) {
-  axios.defaults.headers.common["x-auth-token"] = jwt;
+function setToken(token) {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 }
-
-export default {
+const http = {
   get: axios.get,
   post: axios.post,
   put: axios.put,
   delete: axios.delete,
-  setJwt
+  setToken
 };
+
+export default http;

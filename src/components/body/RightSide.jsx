@@ -33,7 +33,7 @@ export const Right = (props) => {
 			</button>
 			<button className={`${clicked && "bg-gray-300 wiggle "} rounded-xl w-8 h-8 m-3 transition ease-in-out delay-60 hover:bg-gray-800 hover:w-9 hover:h-9`}>
 				<img className="mt-0.5 h-8 w-8 rounded-full" src={me} alt="" />
-				<PersonalMenu></PersonalMenu>
+				{/* <PersonalMenu></PersonalMenu> */}
 			</button>
 		</div>
 	)

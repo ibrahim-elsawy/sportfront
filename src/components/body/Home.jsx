@@ -7,7 +7,8 @@ import { Right } from "./RightSide";
 
 export const Home = (props) => {
 	return (
-		<div className="h-screen  sm:bg-scroll p-2 sm:p-5 bg-gray-900 bg-gradient-to-r from-gray-900 to-black font-sans text-gray-500 flex flex-row">
+		// <div className="h-screen mb-0 pb-0 sm:bg-scroll p-2 sm:p-5 bg-gray-900 bg-gradient-to-r from-gray-900 to-black font-sans text-gray-500 flex flex-row">
+		<div className="h-screen md:h-max md:w-full mb-0 pb-0 sm:bg-scroll p-2 sm:p-5 bg-gray-900 bg-gradient-to-r from-gray-900 to-black font-sans text-gray-500 flex flex-row">
 			<div className="flex flex-row sm:basis-3/4 divide-x divide-gray-500">
 				<div className=" basis-1/8 sm:basis-1/4">
 					<Left></Left>
