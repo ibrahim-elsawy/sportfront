@@ -2,18 +2,27 @@ import http from "./httpService";
 import { main } from "Routing.json";
 
 const apiEndpoint = main + "/auth";
-const tokenKey = "token";
+const tokenKey = "x-auth";
+const refreshKey = "x-refresh";
 
-http.setJwt(getToken());
+http.setToken(getToken());
 
-export async function login(email, password) {
-  const { data: jwt } = await http.post(apiEndpoint, { email, password });
-  localStorage.setItem(tokenKey, jwt);
+export const register = async (userInfo) => { 
+  const { data } = await http.post(apiEndpoint + "/register", userInfo);
+  localStorage.setItem(tokenKey, data.token);
+  localStorage.setItem(refreshKey, data.refreshToken);
+};
+
+export async function login(userInfo) {
+  const { data } = await http.post(apiEndpoint, userInfo);
+  localStorage.setItem(tokenKey, data.token);
+  localStorage.setItem(refreshKey, data.refreshToken);
 }
 
-export function loginWithJwt(jwt) {
-  localStorage.setItem(tokenKey, jwt);
-}
+export const refreshToken = async () => { 
+  console.log("refresh token");
+};
+
 
 export function logout() {
   localStorage.removeItem(tokenKey);
@@ -24,10 +33,17 @@ export function logout() {
 export function getToken() {
   return localStorage.getItem(tokenKey);
 }
+
+export const getRefreshToken = () => { 
+  return localStorage.getItem(refreshKey);
+};
+
 const api = {
+  register,
   login,
-  loginWithJwt,
+  refreshToken,
   logout,
-  getToken
+  getToken,
+  getRefreshToken
 };
 export default api ;
