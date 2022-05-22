@@ -22,9 +22,9 @@ export const Right = (props) => {
 	};
 	return (
 		<div className={`${props.padding} flex flex-row-reverse`}>
-			<button className={`${clicked && "bg-gray-300 wiggle "} bg-slate-800 rounded-xl w-8 h-8 m-3 p-0.5 transition ease-in-out delay-60 hover:bg-gray-800 hover:w-9 hover:h-9 hover:p-1`}>
+			{/* <button className={`${clicked && "bg-gray-300 wiggle "} bg-slate-800 rounded-xl w-8 h-8 m-3 p-0.5 transition ease-in-out delay-60 hover:bg-gray-800 hover:w-9 hover:h-9 hover:p-1`}>
 				<img className="mt-0.5  h-6 w-6 " src={arrow} alt="" />
-			</button>
+			</button> */}
 			<button className={`${clicked && "bg-gray-300 wiggle "} bg-slate-800 rounded-xl w-8 h-8 m-3 p-0.5 transition ease-in-out delay-60 hover:bg-gray-800 hover:w-9 hover:h-9 hover:p-1`}>
 				<div className="flex flex-row">
 					<img className="mt-0.5 h-6 w-6" src={not} alt="" />

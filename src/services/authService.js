@@ -1,7 +1,7 @@
 import http from "./httpService";
-import { main } from "Routing.json";
+import config  from "./Routing.json";
 
-const apiEndpoint = main + "/auth";
+const apiEndpoint = config.main + "auth";
 const tokenKey = "x-auth";
 const refreshKey = "x-refresh";
 
@@ -14,12 +14,17 @@ export const register = async (userInfo) => {
 };
 
 export async function login(userInfo) {
-  const { data } = await http.post(apiEndpoint, userInfo);
+  const { data } = await http.post(apiEndpoint+"/login", userInfo);
   localStorage.setItem(tokenKey, data.token);
   localStorage.setItem(refreshKey, data.refreshToken);
 }
 
 export const refreshToken = async () => { 
+
+
+  // TODO: implement the refresh token 
+
+
   console.log("refresh token");
 };
 
