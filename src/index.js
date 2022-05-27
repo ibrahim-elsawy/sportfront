@@ -5,16 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
+import store from './components/features/store';
 
 ReactDOM.render(
-  <div>
+  <Provider store={store}>
     <div>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover/>
     </div>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </div>,
+  </Provider>,
   document.getElementById('root')
 );
 

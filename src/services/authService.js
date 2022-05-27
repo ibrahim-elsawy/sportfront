@@ -21,16 +21,17 @@ export async function login(userInfo) {
 
 export const refreshToken = async () => { 
 
-
-  // TODO: implement the refresh token 
-
-
-  console.log("refresh token");
+  const {data} = await http.post(apiEndpoint+"/refreshtoken", {
+    "token":getToken(), 
+    "refreshtoken":getRefreshToken() }); 
+  localStorage.setItem(tokenKey, data.token); 
+  localStorage.setItem(refreshKey, data.refreshToken);
 };
 
 
 export function logout() {
   localStorage.removeItem(tokenKey);
+  localStorage.removeItem(refreshKey);
 }
 
 
