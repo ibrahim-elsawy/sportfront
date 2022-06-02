@@ -30,6 +30,7 @@ export const GetAllChallanges = async (skip, take) =>{
         const {data, status} = await http.post(apiEndpoint+"/all", 
             {"skip":skip, "take":take}, 
             configHeader);
+        console.log(data);
         if(status === 401){
             await refreshToken();
             const {data} = await http.get(apiEndpoint, 
@@ -53,6 +54,21 @@ export const GetNumChallanges = async () =>{
         }
         // console.log(data)
         return data.num;
+    } catch (error) {
+        console.log(error)
+    }
+};
+export const IsChallengeJoined = async (challenge_Id) =>{
+    try {
+        const {data, status} = await http.get(apiEndpoint+`/valid/${challenge_Id}`, configHeader);
+        if(status === 401){
+            await refreshToken();
+            const {data} = await http.get(apiEndpoint+`/valid/${challenge_Id}`, configHeader);
+            // console.log(data)
+            return data.valid;
+        }
+        // console.log(data)
+        return data.valid;
     } catch (error) {
         console.log(error)
     }

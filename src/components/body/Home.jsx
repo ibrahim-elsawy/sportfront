@@ -6,8 +6,14 @@ import { Right } from "./RightSide";
 import {useNavigate} from 'react-router-dom';
 import { getToken } from '../../services/authService';
 import Challange from "./Challange";
+import { useSelector } from 'react-redux';
+import { Dashboard } from "./Dashboard";
+import ProfileMe from "./ProfileMe";
+
 
 export const Home = (props) => {
+	const routing = useSelector(state => state.routing);
+
 	const nav = useNavigate();
 	if (! getToken()){ 
 		// nav("/login");
@@ -22,7 +28,9 @@ export const Home = (props) => {
 				</div>
 				<div className="basis-7/8 sm:basis-3/4 ">
 					<Search></Search>
-					<Challange></Challange>
+					{(routing.current==="0") && <Dashboard></Dashboard>}
+					{(routing.current==="1") && <Challange></Challange>}
+					{(routing.current==="5") && <ProfileMe></ProfileMe>}
 					{/* <Post></Post> */}
 				</div>
 			</div>

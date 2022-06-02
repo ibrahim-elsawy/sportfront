@@ -13,7 +13,7 @@ export const ButtonIcon = (props) => {
 	return (
 		<div className={`${props.className}  flex flex-row`}>
 			<button type="button" className={`${props.className}`} onClick={onLike}>{props.logo}</button>
-			<div className={`  sm:pr-2 pl-1 text-xs text-gray-500`}> {props.name} </div>
+			<div className={`  sm:pr-2 pl-1 text-xs text-gray-500 ${props.textSize}`}> {props.name} </div>
 		</div>
 	)
 };

@@ -7,8 +7,12 @@ import save from '../../assets/images/diskette.png'
 import setting from '../../assets/images/settings.png'
 import logout from '../../assets/images/logout.png'
 import { Option } from './Option';
+import { useDispatch } from "react-redux";
+import { routingAdded } from "../features/routingSlice";
 
 export const Left = (props) => {
+	const dispatch = useDispatch();
+
 	const [dashClicked, setDashClicked] = useState(true);
 	const [challClicked, setChallClicked] = useState(false);
 	const [statClicked, setStatClicked] = useState(false);
@@ -26,38 +30,43 @@ export const Left = (props) => {
 	]
 
 	const onDash= () => { 
+		dispatch(routingAdded("0"));
 		if(current !== 0){
 			currentToState[current](false);
 			setCurrent(0);
 			setDashClicked(!dashClicked);
-
+			
 		}
 	};
 	const onChallanges= () => {
+		dispatch(routingAdded("1"));
 		if(current !== 1){
 			currentToState[current](false);
 			setCurrent(1);
 			setChallClicked(!challClicked);
-
+			
 		}
 	};
 	const onStatis= () => { 
+		dispatch(routingAdded("2"));
 		if(current !== 2){
 			currentToState[current](false);
 			setCurrent(2);
 			setStatClicked(!statClicked);
-
+			
 		}
 	};
 	const onSaved= () => { 
+		dispatch(routingAdded("3"));
 		if (current !== 3){
 			currentToState[current](false);
 			setCurrent(3);
 			setSavedClicked(!savedClicked);
-
+			
 		}
 	};
 	const onsettings= () => {
+		dispatch(routingAdded("4"));
 		if(current !== 4){
 			currentToState[current](false);
 			setCurrent(4);
@@ -68,7 +77,7 @@ export const Left = (props) => {
 	const onLogout= () => {
 		if(current !== 5){
 			currentToState[current](false);
-			setCurrent(5);
+			// setCurrent(5);
 			setLogoutClicked(!logoutClicked);
 
 		}

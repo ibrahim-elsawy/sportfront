@@ -4,7 +4,7 @@ import Card from './card';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import config  from "./Routing.json";
+import config  from "../../services/Routing.json";
 const apiEndpoint = config.main + "image/";
 
 const Challange = () => { 
@@ -51,7 +51,7 @@ const Challange = () => {
 		};
 		getNumImages();
 		
-		// requestChallanges(indexPostCard, 2);
+		requestChallanges(indexPostCard, 3);
 		
 
 	}, []);
@@ -116,11 +116,11 @@ const Challange = () => {
 			<div className=" flex flex-col gap-20 mt-5 ml-10">
 				{values && values.map((v) => {
 					return (<Card
-						key={v.$id}
-						img={apiEndpoint+v.url}
-						cardId={v.id}
-						admin_Id={v.admin_Id}
-						numUsers={v.users_Id ? v.users_Id.length : 0}
+						key={v?.$id}
+						img={apiEndpoint+v?.url}
+						cardId={v?.id}
+						admin_Id={v?.admin_Id}
+						numUsers={v?.users_Id ? v?.users_Id.$values.length : 0}
 					></Card>)
 				})}
 			</div>
